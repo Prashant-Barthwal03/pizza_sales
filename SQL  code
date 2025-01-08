@@ -1,0 +1,16 @@
+
+With cte as (
+select
+quantity,
+order_date,
+format(order_date, 'MMMM') as Month,
+format(order_date,'yyyy') as year,
+unit_price,
+total_price,
+pizza_size,
+pizza_category,
+(unit_price*quantity) as total_cost,
+(total_price*quantity) as total_sale
+from pizza_sales
+)
+select * from cte;
